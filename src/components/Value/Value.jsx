@@ -15,6 +15,7 @@ import './Value.css';
 
 
 function Value (){
+    const [className, setClassName]=useState(null);
 	return(
 		<section className="v-wrapper">
             <div className="paddings innerWidth flexCenter v-container">
@@ -38,7 +39,7 @@ function Value (){
                         preExpanded={[0]}
                     >
                     {data.map((item, i)=>{
-                            const [className, setClassName]=useState(null);
+                            
                             return(
                                 <AccordionItem className={`accordionItem ${className}`} key={i} uuid={i}>
                                 {/* <AccordionItem className="accordionItem" key={i} uuid={i}> */}
