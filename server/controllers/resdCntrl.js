@@ -34,6 +34,7 @@ residency});
    }
 });
 
+//Function to get all residencies
 export const getAllResidencies=asyncHandler(async(req,res)=>{
    const residencies = await prisma.residency.findMany({
     orderBy:{
@@ -42,3 +43,17 @@ export const getAllResidencies=asyncHandler(async(req,res)=>{
    });
    res.send(residencies); 
 });
+
+//Function to get one residency by id
+export const getResidency=asyncHandler(async(req, res)=>{
+    const{id}=req.params;
+
+    try{
+        const residency= await prisma.residency.findUnique({
+            where:{id:id}
+        });
+        res.send(residency);
+    }catch(err){
+        throw new Error(err.message);
+    }
+})
