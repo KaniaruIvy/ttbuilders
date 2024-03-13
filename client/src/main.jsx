@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain="dev-yoj2e2mu5bmlatbn.us.auth0.com"
     clientId="ORz32kwrjQmBi7rZYfBo1zFkcB34FHv2"
     authorizationParams={{
-      redirect_uri:"http://localhost:5173"
+      redirect_uri:"https://supreme-adventure-559vjrp4pj62xj7-5173.app.github.dev"
     }}
     audience="http://localhost:8000"
     scope="openid profile email"

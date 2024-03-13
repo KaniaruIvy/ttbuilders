@@ -5,11 +5,12 @@ import OutsideClickHandler from "react-outside-click-handler";
 import useHeaderColor from "../../hooks/useHeaderColor";
 import { useAuth0 } from "@auth0/auth0-react";
 import './Header.css'
+import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 const Header = () => {
     const [menuOpened, setMenuOpened]=useState(false);
     const headerColor = useHeaderColor();
-    const {loginWithRedirect}=useAuth0();
+    const {loginWithRedirect, isAuthenticated, user, logout}=useAuth0();
     const getMenuStyles = (menuOpened) => {
         if(document.documentElement.clientWidth <=800){
             return{right: !menuOpened && "-100%"}
@@ -35,9 +36,13 @@ const Header = () => {
                     <a href="mailto:test@gmail.com">Contact</a>
 
                     {/* Login Button */}
-                    <button className="button" onClick={loginWithRedirect}>
-                        Login
-                    </button>
+                    {!isAuthenticated ? (
+                        <button className="button" onClick={loginWithRedirect}>
+                            Login
+                        </button>
+                    ) : (
+                        <ProfileMenu user={user} logout={logout} />
+            )       }
                     
                 </div>
                 </OutsideClickHandler>
