@@ -11,8 +11,23 @@ const ProfileMenu=({user,logout})=>{
                 <Menu.Item>
                     Favourites
                 </Menu.Item>
+
+                <Menu.Item>
+                    Bookings
+                </Menu.Item>
+
+                <Menu.Item onClick={()=>{
+                    localStorage.clear()
+                    logout()
+                }}>
+                    Logout
+                </Menu.Item>
+
             </Menu.Dropdown>
         </Menu>
+    //     <div>
+    //         Profile
+    //     </div>
     );
 }
 export default ProfileMenu;
