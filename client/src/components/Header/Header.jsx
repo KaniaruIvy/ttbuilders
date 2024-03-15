@@ -6,11 +6,21 @@ import useHeaderColor from "../../hooks/useHeaderColor";
 import { useAuth0 } from "@auth0/auth0-react";
 import './Header.css'
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
+import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
+import useAuthCheck from "../../hooks/useAuthCheck.jsx";
 
 const Header = () => {
     const [menuOpened, setMenuOpened]=useState(false);
+    const [modalOpened, setModalOpened]=useState(false);
     const headerColor = useHeaderColor();
     const {loginWithRedirect, isAuthenticated, user, logout}=useAuth0();
+    const {validateLogin}=useAuthCheck()
+    const handleAddPropertyClick=()=>{
+        if(validateLogin())
+        {
+            setModalOpened(true);
+        }
+    }
     const getMenuStyles = (menuOpened) => {
         if(document.documentElement.clientWidth <=800){
             return{right: !menuOpened && "-100%"}
@@ -35,6 +45,9 @@ const Header = () => {
                     <NavLink to="/properties">Properties</NavLink>
                     <a href="mailto:test@gmail.com">Contact</a>
 
+                    {/* Add Property */}
+                    <div onClick={handleAddPropertyClick}> Add Property </div>
+                    <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
                     {/* Login Button */}
                     {!isAuthenticated ? (
                         <button className="button" onClick={loginWithRedirect}>
