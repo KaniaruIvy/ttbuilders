@@ -21,7 +21,7 @@
         display:block;
     }
     .h-menu{
-        color:var(--black);
+        color:var(--primaryColor);
         position:absolute;
         top:3rem;
         right:4rem;

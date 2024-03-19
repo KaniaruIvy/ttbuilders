@@ -19,13 +19,14 @@ const Hero = () =>{
                                 duration:2,
                                 type:"spring"
                             }}
-                        >Discover<br />
-                        More Suitable <br /> 
-                        Property</motion.h1>
+                        >ONE TEAM<br />
+                        ONE DREAM <br /> 
+                        ONE WIN</motion.h1>
                     </div>
                     <div className="flexColStart hero-des">
-                        <span className="secondaryText">Find a variety of property that suits you very easily</span>
-                        <span className="secondaryText">Forget all difficulties in finding a residence for you</span>
+                        <span className="secondaryText">At Toto Team Builders, we are dedicated to creating memorable <br />
+                        team-building experiences that combine fun, inclusivity< br />
+                        and diversity.</span>
                     </div>
                     
                     <SearchBar />
